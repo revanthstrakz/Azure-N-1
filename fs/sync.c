@@ -22,9 +22,8 @@
 extern bool early_suspend_active;
 extern bool dyn_fsync_active;
 #endif
-bool fsync_enabled = true;
+bool fsync_enabled = false;
 module_param(fsync_enabled, bool, 0755);
->>>>>>> bd84de5... Added fsync on/off support.
 
 #define VALID_FLAGS (SYNC_FILE_RANGE_WAIT_BEFORE|SYNC_FILE_RANGE_WRITE| \
 			SYNC_FILE_RANGE_WAIT_AFTER)
