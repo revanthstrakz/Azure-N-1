@@ -188,17 +188,14 @@ SYSCALL_DEFINE1(syncfs, int, fd)
  */
 int vfs_fsync_range(struct file *file, loff_t start, loff_t end, int datasync)
 {
-<<<<<<< HEAD
 #ifdef CONFIG_DYNAMIC_FSYNC
 	if (likely(dyn_fsync_active && !early_suspend_active))
 		return 0;
 	else {
 #endif
-=======
 	if (!fsync_enabled)
 		return 0;
 		
->>>>>>> bd84de5... Added fsync on/off support.
 	if (!file->f_op || !file->f_op->fsync)
 		return -EINVAL;
 	return file->f_op->fsync(file, start, end, datasync);
@@ -242,18 +239,15 @@ static int do_fsync(unsigned int fd, int datasync)
 
 SYSCALL_DEFINE1(fsync, unsigned int, fd)
 {
-<<<<<<< HEAD
 
 #ifdef CONFIG_DYNAMIC_FSYNC
     if (likely(dyn_fsync_active && !early_suspend_active))
 		return 0;
 	else
 #endif
-=======
 	if (!fsync_enabled)
 		return 0;
 
->>>>>>> bd84de5... Added fsync on/off support.
 	return do_fsync(fd, 0);
 }
 
