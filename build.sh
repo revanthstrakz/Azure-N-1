@@ -29,17 +29,15 @@ BUILD_TIME=$(date +"%Y%m%d-%T")
 echo -e "$yellow Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds.$nocol"
 echo "Movings Files"
 cd ../anykernel
-git reset --hard HEAD
-git checkout tomatoo
+#git reset --hard HEAD
+#git checkout tomatoo
 mv $KERNEL_DIR/arch/arm64/boot/Image zImage
 mv $KERNEL_DIR/arch/arm64/boot/dt.img dt.img
 mv $KERNEL_DIR/drivers/staging/prima/wlan.ko modules/wlan.ko
-#cp spectrum/init.spectrum.rc ../anykernel/ramdisk/init.spectrum.rc
-#cp spectrum/init.spectrum.sh ../anykernel/ramdisk/init.spectrum.sh
 echo "Making Zip"
 zip -r AzurE-N-MM-$BUILD_TIME *
 cd ..
-mv anykernel/Azure-$BUILD_TIME.zip kernel/AzurE-$BUILD_TIME.zip
-gdrive upload kernel/KCUF-O-$BUILD_TIME.zip
+mv anykernel/AzurE-N-MM-$BUILD_TIME.zip /home/panchajanya/Kernel/Zips/Azure-Builds/Nougat-Builds/AzurE-N-MM-$BUILD_TIME.zip
+gdrive upload kernel/AzurE-N-MM-$BUILD_TIME.zip
 echo "Uploaded to Gdrive"
 cd 
