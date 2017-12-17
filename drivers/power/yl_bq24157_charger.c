@@ -324,7 +324,7 @@ static int bq24157_set_ivbus_max(struct bq24157_chip *chip, int current_ma)
 }
 
 #define WEAK_BATT_VOL_MIN      3400
-#define WEAK_BATT_VOL_MAX      3700
+#define WEAK_BATT_VOL_MAX      3800
 #define WEAK_BATT_VOL_STEP       100
 static int bq24157_set_weak_batt_vol(struct bq24157_chip *chip, int vol_mv)
 {
@@ -393,7 +393,7 @@ static int bq24157_enable_OPA_mode(struct bq24157_chip *chip, bool enable)
 }
 
 #define CHG_VOL_MIN      3500
-#define CHG_VOL_MAX      4440
+#define CHG_VOL_MAX      5000
 #define CHG_VOL_STEP     20
 static int bq24157_set_chg_vol_max(struct bq24157_chip *chip, int vol_mv)
 {
@@ -517,7 +517,7 @@ static int bq24157_set_vsp_vol(struct bq24157_chip *chip, int vol_mv)
 /* when Rsense = 68 */
 static const int isafe_limit[] = {550, 650, 750, 850, 950, 1050, 1150, 1250,};
 #define VSAFE_MIN      4200
-#define VSAFE_MAX      4440
+#define VSAFE_MAX      5000
 #define VSAFE_step      20
 
 static int  bq24157_set_safe_reg(struct bq24157_chip *chip, int current_ma, int vol_mv)
