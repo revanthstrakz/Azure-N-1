@@ -19,7 +19,7 @@
 
 #define ENABLED			1
 #define QUICK_CHARGE		"Quick_Charge"
-#define AC_CURRENT		500
+#define AC_CURRENT		1000
 
 // Enable/Disable Toggle.
 int QC_Toggle = ENABLED;
@@ -69,11 +69,11 @@ void batt_level (int Battery_Status)
 	{
 	   // Mechanism of Driver to Allocate Current (mA).
  	   if (Battery_Percent >= 0 && Battery_Percent <= 60)
-	      Dynamic_Current = 1500;
+	      Dynamic_Current = 600;
 	   else if (Battery_Percent >= 61 && Battery_Percent <= 90)
-		   Dynamic_Current = 1250;
+		   Dynamic_Current = 550;
 	   else if (Battery_Percent >= 91 && Battery_Percent <= 100)
-  	           Dynamic_Current = 1000;
+  	           Dynamic_Current = 500;
 	}
 	else if (Charging_Profile == 1)
 	{
